@@ -1,12 +1,14 @@
 package com.luoyy.study_spring_boot.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Data
+@Proxy(lazy = false)
 public class SysRole {
     @Id
     @GeneratedValue
@@ -20,8 +22,9 @@ public class SysRole {
     @JoinTable(name="SysRolePermission",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="permissionId")})
     private List<SysPermission> permissions;
 
-    // 用户 - 角色关系定义;
+   /* // 用户 - 角色关系定义;
     @ManyToMany
     @JoinTable(name="SysUserRole",joinColumns={@JoinColumn(name="roleId")},inverseJoinColumns={@JoinColumn(name="uid")})
-    private List<UserInfo> userInfos;// 一个角色对应多个用户
+    private List<UserInfo> userInfos;// 一个角色对应多个用户*/
+
 }

@@ -3,6 +3,7 @@ package com.luoyy.study_spring_boot.config;
 import com.luoyy.study_spring_boot.entity.SysPermission;
 import com.luoyy.study_spring_boot.entity.SysRole;
 import com.luoyy.study_spring_boot.entity.UserInfo;
+import com.luoyy.study_spring_boot.service.UserInfoService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

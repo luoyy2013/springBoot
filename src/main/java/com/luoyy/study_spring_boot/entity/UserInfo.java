@@ -1,6 +1,7 @@
 package com.luoyy.study_spring_boot.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Proxy(lazy = false)
 public class UserInfo implements Serializable {
     @Id
     @GeneratedValue
@@ -21,4 +23,13 @@ public class UserInfo implements Serializable {
     @ManyToMany(fetch= FetchType.EAGER)//立即从数据库中进行加载数据;
     @JoinTable(name = "SysUserRole", joinColumns = { @JoinColumn(name = "uid") }, inverseJoinColumns ={@JoinColumn(name = "roleId") })
     private List<SysRole> roleList;// 一个用户具有多个角色
+    /**
+     * 密码盐.
+     * @return
+     */
+    public String getCredentialsSalt(){
+        return this.username+this.salt;
+    }
+    //重新对盐重新进行了定义，用户名+salt，这样就更加不容易被破解
+
 }
