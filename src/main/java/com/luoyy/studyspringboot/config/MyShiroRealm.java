@@ -1,9 +1,9 @@
-package com.luoyy.study_spring_boot.config;
+package com.luoyy.studyspringboot.config;
 
-import com.luoyy.study_spring_boot.entity.SysPermission;
-import com.luoyy.study_spring_boot.entity.SysRole;
-import com.luoyy.study_spring_boot.entity.UserInfo;
-import com.luoyy.study_spring_boot.service.UserInfoService;
+import com.luoyy.studyspringboot.entity.SysPermission;
+import com.luoyy.studyspringboot.entity.SysRole;
+import com.luoyy.studyspringboot.entity.UserInfo;
+import com.luoyy.studyspringboot.service.UserInfoService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -34,7 +34,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         return authorizationInfo;
     }
 
-    /*主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确。*/
+    /** 主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确。*/
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)
             throws AuthenticationException {
@@ -49,13 +49,16 @@ public class MyShiroRealm extends AuthorizingRealm {
         if(userInfo == null){
             return null;
         }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                userInfo, //用户名
-                userInfo.getPassword(), //密码
-                ByteSource.Util.bytes(userInfo.getCredentialsSalt()),//salt=username+salt
-                getName()  //realm name
+        return new SimpleAuthenticationInfo(
+                //用户名
+                userInfo,
+                //密码
+                userInfo.getPassword(),
+                //salt=username+salt
+                ByteSource.Util.bytes(userInfo.getCredentialsSalt()),
+                //realm name
+                getName()
         );
-        return authenticationInfo;
     }
 
 }

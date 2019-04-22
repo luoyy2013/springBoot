@@ -1,8 +1,8 @@
-package com.luoyy.study_spring_boot.service.impl;
+package com.luoyy.studyspringboot.service.impl;
 
-import com.luoyy.study_spring_boot.dao.UserInfoDao;
-import com.luoyy.study_spring_boot.entity.UserInfo;
-import com.luoyy.study_spring_boot.service.UserInfoService;
+import com.luoyy.studyspringboot.dao.UserInfoDao;
+import com.luoyy.studyspringboot.entity.UserInfo;
+import com.luoyy.studyspringboot.service.UserInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

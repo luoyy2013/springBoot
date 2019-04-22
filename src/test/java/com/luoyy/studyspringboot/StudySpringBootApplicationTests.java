@@ -1,4 +1,4 @@
-package com.luoyy.study_spring_boot;
+package com.luoyy.studyspringboot;
 
 import com.mysql.jdbc.StringUtils;
 import org.junit.Test;

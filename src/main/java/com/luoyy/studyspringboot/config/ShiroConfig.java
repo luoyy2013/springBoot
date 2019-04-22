@@ -1,4 +1,4 @@
-package com.luoyy.study_spring_boot.config;
+package com.luoyy.studyspringboot.config;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -49,8 +49,10 @@ public class ShiroConfig {
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher(){
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
-        hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
+        //散列算法:这里使用MD5算法;
+        hashedCredentialsMatcher.setHashAlgorithmName("md5");
+        //散列的次数，比如散列两次，相当于 md5(md5(""));
+        hashedCredentialsMatcher.setHashIterations(2);
         return hashedCredentialsMatcher;
     }
 
@@ -87,11 +89,15 @@ public class ShiroConfig {
     createSimpleMappingExceptionResolver() {
         SimpleMappingExceptionResolver r = new SimpleMappingExceptionResolver();
         Properties mappings = new Properties();
-        mappings.setProperty("DatabaseException", "databaseError");//数据库异常处理
+        //数据库异常处理
+        mappings.setProperty("DatabaseException", "databaseError");
         mappings.setProperty("UnauthorizedException","403");
-        r.setExceptionMappings(mappings);  // None by default
-        r.setDefaultErrorView("error");    // No default
-        r.setExceptionAttribute("ex");     // Default is "exception"
+        // None by default
+        r.setExceptionMappings(mappings);
+        // No default
+        r.setDefaultErrorView("error");
+        // Default is "exception"
+        r.setExceptionAttribute("ex");
         //r.setWarnLogCategory("example.MvcLogger");     // No default
         return r;
     }

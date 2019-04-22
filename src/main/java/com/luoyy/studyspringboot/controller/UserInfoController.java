@@ -1,18 +1,21 @@
-package com.luoyy.study_spring_boot.controller;
+package com.luoyy.studyspringboot.controller;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * @author luosir
+ */
 @Controller
 @RequestMapping("/userInfo")
 public class UserInfoController {
     /**
      * 用户查询.
-     * @return
+     * @return userInfo 页面
      */
     @RequestMapping("/userList")
-    @RequiresPermissions("userInfo:view")//权限管理;
+    @RequiresPermissions("userInfo:view")
     public String userInfo(){
         return "userInfo";
     }
@@ -22,7 +25,7 @@ public class UserInfoController {
      * @return
      */
     @RequestMapping("/userAdd")
-    @RequiresPermissions("userInfo:add")//权限管理;
+    @RequiresPermissions("userInfo:add")
     public String userInfoAdd(){
         return "userInfoAdd";
     }
@@ -32,7 +35,7 @@ public class UserInfoController {
      * @return
      */
     @RequestMapping("/userDel")
-    @RequiresPermissions("userInfo:del")//权限管理;
+    @RequiresPermissions("userInfo:del")
     public String userDel(){
         return "userInfoDel";
     }

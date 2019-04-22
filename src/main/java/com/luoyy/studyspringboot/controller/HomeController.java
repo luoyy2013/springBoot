@@ -1,4 +1,4 @@
-package com.luoyy.study_spring_boot.controller;
+package com.luoyy.studyspringboot.controller;
 
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
